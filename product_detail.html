@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+<body style="background-color: white;">
+
+    <nav class="navbar">
+        <div class="navleft">
+            <a href="index.html" style="font-size: 1.2rem; font-weight: bold;">← Back to Home</a>
+        </div>
+    </nav>
+
+    <div class="container" style="margin-top: 50px;">
+        
+        <div class="detail-image">
+            <img id="detailImg" src="" alt="Product Image" style="width: 100%; border-radius: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+        </div>
+
+        <div class="detail-info" style="padding: 20px;">
+            <h1 id="detailTitle" style="font-size: 3rem; color: #333;">Loading...</h1>
+            <h3 id="detailCategory" style="color: #666; margin-top: 10px;">Category</h3>
+            <h2 id="detailPrice" style="color: #6a5cff; font-size: 2rem; margin: 20px 0;">$0.00</h2>
+            
+            <p id="detailDesc" style="line-height: 1.6; color: #555;">
+                This is a limited edition item from the FandomVerse collection. 
+                High quality material and authentic design.
+            </p>
+
+            <button style="
+                margin-top: 30px;
+                padding: 15px 40px;
+                background-color: #6a5cff;
+                color: white;
+                border: none;
+                border-radius: 30px;
+                font-size: 1.2rem;
+                cursor: pointer;">
+                Add to Cart
+            </button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // 1. Get the ID from the URL (e.g., ?id=101)
+            const params = new URLSearchParams(window.location.search);
+            const productId = params.get('id');
+
+            // 2. Get all products from storage
+            const products = JSON.parse(localStorage.getItem('fandomProducts')) || [];
+
+            // 3. Find the specific product that matches the ID
+            const product = products.find(p => p.id === productId);
+
+            if (product) {
+                // 4. If found, fill in the HTML elements
+                document.getElementById('detailTitle').innerText = product.name;
+                document.getElementById('detailPrice').innerText = "$" + product.price;
+                document.getElementById('detailCategory').innerText = product.category + " | " + product.subCategory;
+                
+                // Construct Image Path
+                document.getElementById('detailImg').src = "RSC/IMGS/" + product.image;
+            } else {
+                // 5. If not found (wrong ID), show error
+                document.querySelector('.container').innerHTML = "<h2>Product not found!</h2>";
+            }
+        });
+    </script>
+</body>
+</html>

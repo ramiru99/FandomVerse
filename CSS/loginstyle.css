@@ -1,0 +1,162 @@
+/* --- GLOBAL RESET --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #111; 
+}
+
+/* --- 1. STATIC BACKGROUND IMAGE --- */
+.bg-static-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+    /* Strong blur for the background */
+    filter: blur(15px) brightness(0.5); 
+    transform: scale(1.1); /* Scale up to hide blurred edges */
+}
+
+/* --- OVERLAY --- */
+.overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: -1;
+}
+
+/* --- 2. MAIN SPLIT WRAPPER --- */
+.main-login-wrapper {
+    display: flex; /* Enables side-by-side layout */
+    width: 900px; /* Fixed width for centering */
+    max-width: 95vw; /* Responsive on smaller screens */
+    height: 550px; /* Fixed height */
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 20px; /* Rounded corners for the whole box */
+    overflow: hidden; /* Ensures images don't spill out of corners */
+    box-shadow: 0 25px 50px rgba(0,0,0,0.5); /* Deep shadow */
+    backdrop-filter: blur(10px);
+    z-index: 1;
+}
+
+/* --- LEFT SIDE: SLIDER --- */
+.left-side-slider {
+    flex: 1; /* Takes 50% width */
+    position: relative;
+    overflow: hidden;
+}
+
+.side-slide {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    object-fit: cover; /* Ensures images fill the space perfectly */
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+}
+
+.side-slide.active {
+    opacity: 1;
+    z-index: 1;
+}
+
+/* Optional: Slight dark tint over the slider images */
+.slider-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.4));
+    z-index: 2;
+}
+
+/* --- RIGHT SIDE: FORM --- */
+.right-side-form {
+    flex: 1; /* Takes the other 50% width */
+    padding: 4rem 3rem; /* More padding for breathing room */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centers form vertically */
+    text-align: center;
+}
+
+/* --- FORM STYLES (Mostly unchanged) --- */
+h1 {
+    color: #6b5b95;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+}
+
+.input-group {
+    margin-bottom: 1.2rem;
+    width: 100%;
+}
+
+input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    font-size: 1rem;
+    outline: none;
+    color: #555;
+    background: white;
+}
+
+input:focus {
+    border-color: #6b5b95;
+    box-shadow: 0 0 5px rgba(107, 91, 149, 0.3);
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: all 0.3s ease;
+}
+
+#loginBtn {
+    background-color: #6b5b95;
+    color: white;
+    border: none;
+}
+
+#loginBtn:hover {
+    background-color: #5a4b80;
+    transform: translateY(-2px);
+}
+
+@keyframes geminiMove {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
+#createBtn {
+    color: #555;
+    border: 3px solid transparent;
+    background-image: linear-gradient(white, white), 
+                      linear-gradient(90deg, #4285F4, #9B72CB, #D96570, #F4B400, #0F9D58, #4285F4);
+    background-origin: padding-box, border-box;
+    background-clip: padding-box, border-box;
+    background-size: 100% 100%, 400% 100%;
+    animation: geminiMove 3s linear infinite;
+    transition: transform 0.3s ease;
+}
+
+#createBtn:hover {
+    transform: scale(1.02);
+}

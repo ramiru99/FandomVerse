@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="CSS/admin_dashboard.css">
+</head>
+<body>
+
+    <div class="sidebar">
+        <h2>FandomVerse<br><span>Admin Panel</span></h2>
+        
+        <a href="#" class="active">Dashboard</a>
+        <a href="#">Orders</a>
+        <a href="#">Settings</a>
+
+        <a href="login.html" class="logout-btn">Logout</a>
+    </div>
+
+    <div class="main-content">
+        
+        <div class="header">
+            <h3>Overview</h3>
+            <div class="user-info">
+                <span id="displayAdminName">Loading...</span>
+                <div class="admin-avatar">AD</div>
+            </div>
+        </div>
+
+        <div class="manage-items-container">
+            <h3>Manage Store Items</h3>
+            
+            <div class="add-item-form">
+    <div class="form-row">
+        <input type="text" id="itemId" placeholder="Item ID (e.g. #101)">
+        <input type="text" id="itemName" placeholder="Item Name">
+        <input type="text" id="itemPrice" placeholder="Price (LKR)">
+        <input type="text" id="itemImage" placeholder="Image name (e.g. game.jpg)">
+    </div>
+    
+    <div class="form-row">
+        <select id="itemCategory">
+            <option value="" disabled selected>Select Category</option>
+            <option value="Figures">Figures</option>
+            <option value="Apparel">Apparel</option>
+            <option value="Posters">Posters</option>
+            <option value="Accessories">Accessories</option>
+            <option value="Games">Games</option>
+        </select>
+        
+        <select id="itemSubCategory">
+            <option value="" disabled selected>Select Sub-Category</option>
+            <option value="League of Legends">League of Legends</option>
+            <option value="GTA">GTA</option>
+            <option value="Valorant">Valorant</option>
+            <option value="Assassin's Creed">Assassin's Creed</option>
+            <option value="Marvel">Marvel</option>
+            <option value="DC">DC</option>
+            <option value="Other">Other</option>
+        </select>
+        
+        <div class="checkbox-wrapper">
+            <input type="checkbox" id="itemLimited">
+            <label for="itemLimited">Limited Edition?</label>
+        </div>
+    </div>
+
+    <button id="addItemBtn">Add Item to Store</button>
+</div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Category</th>
+                        <th>Sub-Cat</th>
+                        <th>Limited</th>
+                        <th>Price</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="itemsTableBody">
+                    <tr>
+                        <td>#885</td>
+                        <td>Arcane Jinx Poster</td>
+                        <td>Posters</td>
+                        <td>Arcane</td>
+                        <td><span class="badge-no">No</span></td>
+                        <td>$25.00</td>
+                        <td><button class="remove-btn">Remove</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <script src="JS/dashboard_logic.js"></script>
+</body>
+</html>

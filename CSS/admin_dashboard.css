@@ -1,0 +1,220 @@
+/* RESET & FONTS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    display: flex;
+    height: 100vh;
+    background-color: #f0f4f8; 
+}
+
+/* --- SIDEBAR (Centered & Purple) --- */
+.sidebar {
+    width: 260px;
+    background-color: white; 
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+    border-right: 1px solid #ddd;
+    text-align: center; /* Center text */
+}
+
+.sidebar h2 {
+    margin-bottom: 40px;
+    color: #6b5b95; /* Purple */
+}
+
+.sidebar h2 span {
+    font-size: 0.6em;
+    color: #777;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: #555;
+    padding: 12px 20px;
+    margin-bottom: 15px;
+    border-radius: 25px; 
+    font-weight: 600;
+    transition: 0.3s;
+    background-color: #f9f9f9;
+    
+    /* Center text inside the link */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sidebar a:hover, .sidebar a.active {
+    background-color: #6b5b95; /* Purple */
+    color: white;
+}
+
+.logout-btn {
+    margin-top: auto;
+    border: 2px solid #6b5b95; /* Purple Border */
+    color: #6b5b95 !important;
+    background-color: white !important;
+}
+
+.logout-btn:hover {
+    background-color: #6b5b95 !important;
+    color: white !important;
+}
+
+/* --- MAIN CONTENT --- */
+.main-content {
+    flex: 1;
+    padding: 30px;
+    overflow-y: auto;
+}
+
+.header {
+    background-color: white;
+    padding: 20px 30px;
+    border-radius: 25px; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    margin-bottom: 30px;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-weight: bold;
+    color: #555;
+}
+
+.admin-avatar {
+    width: 40px;
+    height: 40px;
+    background-color: #6b5b95; /* Purple */
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+}
+
+/* --- MANAGE ITEMS FORM --- */
+.manage-items-container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 25px; 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.add-item-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
+    background-color: #f8f8f8;
+    padding: 25px;
+    border-radius: 25px;
+}
+
+.form-row {
+    display: flex;
+    gap: 15px;
+}
+
+/* Inputs & Selects */
+input, select {
+    flex: 1;
+    padding: 12px 20px;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    outline: none;
+    background: white;
+}
+
+input:focus, select:focus {
+    border-color: #6b5b95; /* Purple Focus */
+}
+
+/* Checkbox Style */
+.checkbox-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+    background: white;
+    padding: 0 15px;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+}
+.checkbox-wrapper input {
+    flex: 0; /* Stop checkbox from stretching */
+    width: 20px;
+    height: 20px;
+}
+
+#addItemBtn {
+    background-color: #6b5b95; /* Purple Button */
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+#addItemBtn:hover {
+    background-color: #5a4b80;
+}
+
+/* TABLE STYLING */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 15px;
+    text-align: center; /* Center align table data */
+    border-bottom: 1px solid #eee;
+}
+
+th {
+    background-color: #f9f9f9;
+    color: #6b5b95; /* Purple Headers */
+}
+
+.remove-btn {
+    background-color: white;
+    color: red;
+    border: 1px solid red;
+    padding: 5px 15px;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+
+.remove-btn:hover {
+    background-color: red;
+    color: white;
+}
+
+/* Badges for Limited Edition */
+.badge-yes {
+    background-color: #6b5b95;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+}
+.badge-no {
+    color: #999;
+    font-size: 0.8rem;
+}

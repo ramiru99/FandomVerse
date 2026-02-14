@@ -1,0 +1,98 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #f0f4f8;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.signup-container {
+    background-color: white;
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    width: 350px;
+    text-align: center;
+}
+
+h1 {
+    color: blueviolet;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+}
+
+.input-group {
+    margin-bottom: 1.2rem;
+}
+
+input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    font-size: 1rem;
+    box-sizing: border-box; /* Ensures padding doesn't widen the element */
+    outline: none;
+    color: #555;
+}
+
+input:focus {
+    border-color: #6b5b95;
+}
+
+#signupBtn {
+    width: 100%;
+    padding: 12px;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: all 0.3s ease;
+    background-color: blueviolet;
+    color: white;
+    border: none;
+}
+
+#signupBtn:hover {
+    background-color: magenta;
+}
+
+#backBtn {
+    background-color: white;
+    color: blueviolet;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+}
+
+#backBtn:hover {
+    text-decoration: underline;
+}
+
+
+input, select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    font-size: 1rem;
+    box-sizing: border-box; /* Ensures padding doesn't widen the element */
+    outline: none;
+    color: #555;
+    background-color: white;
+}
+
+.error-msg {
+    color: red;
+    font-size: 0.85rem;
+    display: none;
+    margin-top: 5px;
+    text-align: left;
+    width: 100%;
+    padding-left: 10px;
+}

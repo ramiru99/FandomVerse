@@ -1,0 +1,448 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+html {
+  scroll-behavior: smooth;
+}
+nav{
+    display: flex;
+    gap: 20px;
+}
+.navitem{
+    position: relative;
+}
+.dropdown{
+    position: absolute;
+    top: 120%;
+    left: 0;
+    border-radius: 12px;
+    padding: 10px 0;
+    min-width: 220px;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+
+    transition: all 0.25s ease;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    z-index: 99;
+}
+.navitem:hover .dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.dropdown a{
+    display: block;
+    padding: 12px 20px;
+    color: #000000;
+    text-decoration: none;
+    font-size: 14px;
+}
+.dropdown a:hover{
+    background: rgba(108, 92, 231, 0.15);
+}
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 40px;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+.navleft{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+.logo{
+    height: 70px;
+}
+nav a{
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    margin-right: 20px;
+    font-weight: 500;
+}
+.navright{
+    padding: 8px 12px;
+    border-radius: 30px;
+    border: 1px solid ;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.navright input{
+    padding: 8px 12px;
+    border-radius: 10px;
+    border: 1px solid white;
+    color: aliceblue;
+}
+.navicons{
+    height: 22px;
+    cursor: pointer;
+}
+/*MAIN*/
+.container{
+    display: grid;
+    grid-template-columns: 3fr 1.2fr;
+    gap: 30px;
+    padding: 30px 40px;
+}
+.hero {
+    position: relative;
+    border-radius: 14px;
+    overflow: hidden;
+    height: 100%; /* Ensures the container fills the grid cell */
+}
+
+.slides {
+    position: relative;
+    height: 100%;       /* STRETCH to fill the grid cell */
+    min-height: 520px;  /* Ensure it never gets too small */
+}
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+.slide.active{
+    opacity: 1;
+}
+
+.herotext{
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+    color: white;
+    max-width: 400px;
+    background: none;
+    z-index: 2;
+}
+.herotext h1{
+    font-size: 42px;
+    margin-bottom: 10px;
+    background: none;
+    margin-bottom: 10px;
+}
+.herotext p{
+    font-size: 18px;
+    margin-bottom: 15px;
+    background: none;
+    margin-bottom: 16px;
+}
+.herotext button{
+    padding: 12px 20px;
+    border: none;
+    background: #6a5cff;
+    color: white;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+.herotext button:hover {
+  background: white;
+  color: black;
+}
+.hero::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.55),
+    rgba(0,0,0,0.1)
+  );
+  z-index: 1;
+}
+.hero img {
+    width: 100% !important;
+    height: 100% !important; /* Forces image to hit the bottom */
+    object-fit: cover !important; /* Crops edges to fit without stretching */
+    display: block;
+    border-radius: 14px;
+}
+.hero img:hover{
+    transform: scale(1.1);
+    transition: transform 0.6s ease;
+}
+
+
+/*side content*/
+.sidecontent{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.sidecard{
+    background: rgb(106, 106, 106);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px rgba(0,0,0,0.08);
+    cursor: pointer;
+    transition: transform 0.6s ease;
+}
+.sidecard img{
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+}
+.sidecard img:hover{
+    transform: scale(1.1);
+    transition: transform 0.6s ease;
+}
+.sidecard h3{
+    padding: 10px;
+    font-size: 14px;
+    color: #9086fa;
+    background: rgb(255, 255, 255);
+    text-decoration: aliceblue;
+}
+.sidecard p{
+    padding: 0 10px 12px;
+    font-size: 15px;
+    font-weight: bold;
+    background: rgb(255, 255, 255);
+}
+/*Colloections*/
+.collectionsection{
+    padding: 80px 40px;
+    background: aliceblue;
+}
+.secttitle{
+    color: #111;
+    font-size: 32px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+.collectiongrid{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 30px;
+}
+.collectioncard{
+    position: relative;
+    height: 75%;
+    margin-left: 30px;
+    width: 75%;
+    border-radius: 20px;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    border-radius: 18px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+
+
+.collectioncard h3 {
+    position: absolute;
+    bottom: 100px;
+    z-index: 2;
+    color: white;
+    font-weight: 600;
+    padding: 20px;
+    font-size: 20px;
+    text-align: center;
+    background: none;
+}
+
+
+.collectioncard:hover{
+    transform: translateY(-8px);
+    transform: scale(1.1);
+    transition: transform 0.6s ease;
+}
+.collectioncard img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    z-index: 1;
+}
+.collection-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.55),
+    rgba(0, 0, 0, 0.15)
+  );
+  z-index: 1;
+}
+.collection-content {
+  background: none;   /* IMPORTANT */
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  z-index: 2;
+}
+
+.explore-btn {
+    padding: 12px 20px;
+    border: none;
+    background: #6a5cff;
+    color: white;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    text-decoration: none;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.explore-btn:hover {
+  background: white;
+  color: black;
+}
+
+/*Contact form*/
+.contactsect{
+    padding: 80px 8%;
+    text-align: center;
+}
+.contactsect h2{
+    font-size: 36px;
+    margin-bottom: 40px;
+    color: #111;
+}
+.contactbox{
+  max-width: 540px;
+  margin: 0 auto;
+  border-radius: 22px;
+  padding: 2px;
+  box-shadow: 0 10px 30px rgba(108, 99, 255, 0.4);
+}
+
+.contactform{
+    background: transparent;
+    border-radius: 20px;
+    max-width: 500px;
+    padding: 40px 30px;
+    background-clip: padding-box;
+    position: relative;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 19px;
+}
+.contactform input,
+.contactform textarea{
+    padding: 14px 16px;
+    border-radius: 14px;
+    border: none;
+    outline: none;
+    background: aliceblue;
+    color: #111;
+    font-size: 15px;
+}
+.contactform textarea{
+    resize: none;
+    height: 130px;
+}
+.contactform button{
+    margin-top: 10px;
+    padding: 14px;
+    border-radius: 30px;
+    border: none;
+    background: linear-gradient(135deg, #ff4ecd, #6c63ff);
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.contactform button:hover{
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px rgba(108, 99, 255, 0.4);
+}
+
+/* --- NEW ARRIVALS: SQUARE IMAGES --- */
+#new-arrivals-container .collectioncard {
+    position: relative;
+    width: 90%;
+    height: 500px;
+    margin-bottom: 50px;
+    background-position: center;
+    overflow: hidden;
+}
+#new-arrivals-container .collectioncard img {
+    width: 100%;
+    height: 100%;
+    
+
+    /* 2. "Cover" ensures the image fills the square by cropping 
+          the edges instead of stretching/squishing the character */
+    object-fit: cover;
+    
+    /* 3. (Optional) Focus on the top-center of the image.
+          This is usually better for Figures/Characters so you don't cut off heads. */
+    object-position: top center;
+}
+
+.arrivalgrid{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 30px;
+}
+
+/* --- NEW ARRIVALS SLIDER --- */
+
+/* The Window: Hides anything outside the box */
+.slider-window {
+    width: 100%;
+    overflow: hidden;
+    padding: 20px 0; /* Space for shadows */
+    position: relative;
+}
+
+/* The Track: Holds all cards in a long horizontal row */
+.arrival-track {
+    display: flex;
+    gap: 20px; /* Space between cards */
+    width: max-content; /* Allow it to be as wide as needed */
+    transition: transform 0.5s ease-in-out; /* Smooth sliding animation */
+}
+
+/* The Cards: Force them to be exactly 4 per screen (minus gaps) */
+#new-arrivals-container .collectioncard {
+    /* calculation: 100% / 4 items - gap adjustment */
+    width: calc(25vw - 40px); 
+    min-width: 220px; /* Don't get too small on mobile */
+    flex-shrink: 0;   /* Prevent squishing */
+}
+
+/* Ensure images stay square 1:1 */
+#new-arrivals-container .collectioncard img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+}
+
+body {
+    background-color: lightgray; /* Or use #f0f4f8 for a cleaner look */
+}
+
+.hero, .slides, .slide, .herotext, .herotext h1, .herotext p {
+    background-color: transparent !important;
+    background: none !important;
+}
+
+
+
+
+
